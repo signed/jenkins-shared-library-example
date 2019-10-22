@@ -1,19 +1,9 @@
 package org.somecompany
 
-class StepExecutor implements IStepExecutor {
-    private _steps
-
-    StepExecutor(steps) {
-        this._steps = steps
-    }
-
-    @Override
-    int sh(String command) {
-        this._steps.sh returnStatus: true, script: "${command}"
-    }
-
-    @Override
-    void error(String message) {
-        this._steps.error(message)
-    }
+/**
+ * Interface for calling any necessary Jenkins steps. This will be mocked in unit tests.
+ */
+interface StepExecutor {
+    int sh(String command)
+    void error(String message)
 }
