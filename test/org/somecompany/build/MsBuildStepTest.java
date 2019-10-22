@@ -5,13 +5,13 @@ import org.somecompany.StepExecutor;
 
 import static org.mockito.Mockito.*;
 
-class MsBuildTest {
+class MsBuildStepTest {
     private StepExecutor steps = mock(StepExecutor.class);
 
     @Test
     void build_callsShStep() {
         String solutionPath = "some/path/to.sln";
-        MsBuild builder = new MsBuild(steps, solutionPath, true);
+        MsBuildStep builder = new MsBuildStep(steps, solutionPath, true);
 
         builder.build();
 
@@ -21,7 +21,7 @@ class MsBuildTest {
     @Test
     void build_shStepReturnsStatusNotEqualsZero_callsErrorStep() {
         String solutionPath = "some/path/to.sln";
-        MsBuild builder = new MsBuild(steps, solutionPath, true);
+        MsBuildStep builder = new MsBuildStep(steps, solutionPath, true);
 
         when(steps.sh(anyString())).thenReturn(-1);
 

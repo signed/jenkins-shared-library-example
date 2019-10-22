@@ -2,12 +2,12 @@ package org.somecompany.build
 
 import org.somecompany.StepExecutor
 
-class MsBuild implements Serializable {
+class MsBuildStep implements Serializable {
     private final StepExecutor steps
     private final String solutionPath
     private final boolean strict
 
-    MsBuild(StepExecutor steps, String solutionPath, boolean strict) {
+    MsBuildStep(StepExecutor steps, String solutionPath, boolean strict) {
         this.strict = strict
         this.steps = steps
         this.solutionPath = solutionPath

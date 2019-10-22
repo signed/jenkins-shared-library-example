@@ -1,5 +1,5 @@
 import org.somecompany.DefaultStepExecutor
-import org.somecompany.build.MsBuild
+import org.somecompany.build.MsBuildStep
 
 /**
  * Example custom step for easy use of MsBuild inside Jenkinsfiles
@@ -7,6 +7,5 @@ import org.somecompany.build.MsBuild
  * @return
  */
 def call(String solutionPath, boolean strict = true) {
-    def msBuilder = new MsBuild(new DefaultStepExecutor(this), solutionPath, strict)
-    msBuilder.build()
+    new MsBuildStep(new DefaultStepExecutor(this), solutionPath, strict).build()
 }
