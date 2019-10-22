@@ -2,20 +2,19 @@ package org.somecompany.build
 
 import org.somecompany.StepExecutor
 
-/**
- * Example class (without proper implementation) for using the MsBuild tool for building .NET projects.
- */
 class MsBuild implements Serializable {
     private final StepExecutor steps
     private final String solutionPath
+    private final boolean strict
 
-    MsBuild(String solutionPath, StepExecutor steps) {
+    MsBuild(StepExecutor steps, String solutionPath, boolean strict) {
+        this.strict = strict
         this.steps = steps
         this.solutionPath = solutionPath
     }
 
     void build() {
-        int returnStatus = steps.sh("echo \"[updated] building ${this.solutionPath}...\"")
+        int returnStatus = steps.sh("echo \"[updated] building ${this.solutionPath} strict=${strict}...\"")
         if (returnStatus != 0) {
             steps.error("Some error")
         }

@@ -9,27 +9,27 @@ import static org.mockito.Mockito.*;
  * Example test class
  */
 public class MsBuildTest {
-    private StepExecutor _steps = mock(StepExecutor.class);
+    private StepExecutor steps = mock(StepExecutor.class);
 
     @Test
     public void build_callsShStep() {
         String solutionPath = "some/path/to.sln";
-        MsBuild builder = new MsBuild(solutionPath, _steps);
+        MsBuild builder = new MsBuild(steps, solutionPath);
 
         builder.build();
 
-        verify(_steps).sh(anyString());
+        verify(steps).sh(anyString());
     }
 
     @Test
     public void build_shStepReturnsStatusNotEqualsZero_callsErrorStep() {
         String solutionPath = "some/path/to.sln";
-        MsBuild builder = new MsBuild(solutionPath, _steps);
+        MsBuild builder = new MsBuild(steps, solutionPath);
 
-        when(_steps.sh(anyString())).thenReturn(-1);
+        when(steps.sh(anyString())).thenReturn(-1);
 
         builder.build();
 
-        verify(_steps).error(anyString());
+        verify(steps).error(anyString());
     }
 }

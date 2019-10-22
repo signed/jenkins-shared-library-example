@@ -6,7 +6,7 @@ import org.somecompany.build.MsBuild
  * @param solutionPath Path to .sln file
  * @return
  */
-def call(String solutionPath) {
-    def msbuilder = new MsBuild(solutionPath, new DefaultStepExecutor(this))
-    msbuilder.build()
+def call(String solutionPath, boolean strict = true) {
+    def msBuilder = new MsBuild(new DefaultStepExecutor(this), solutionPath, strict)
+    msBuilder.build()
 }
