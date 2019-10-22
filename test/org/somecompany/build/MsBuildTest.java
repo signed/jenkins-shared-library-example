@@ -29,7 +29,7 @@ public class MsBuildTest {
     public void build_callsShStep() {
         // prepare
         String solutionPath = "some/path/to.sln";
-        MsBuild builder = new MsBuild(solutionPath);
+        MsBuild builder = new MsBuild(solutionPath, _steps);
 
         // execute
         builder.build();
@@ -42,7 +42,7 @@ public class MsBuildTest {
     public void build_shStepReturnsStatusNotEqualsZero_callsErrorStep() {
         // prepare
         String solutionPath = "some/path/to.sln";
-        MsBuild builder = new MsBuild(solutionPath);
+        MsBuild builder = new MsBuild(solutionPath, _steps);
 
         when(_steps.sh(anyString())).thenReturn(-1);
 

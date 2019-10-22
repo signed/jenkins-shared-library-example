@@ -1,3 +1,4 @@
+import org.somecompany.StepExecutor
 import org.somecompany.build.MsBuild
 import org.somecompany.ioc.ContextRegistry
 
@@ -7,8 +8,6 @@ import org.somecompany.ioc.ContextRegistry
  * @return
  */
 def call(String solutionPath) {
-    ContextRegistry.registerDefaultContext(this)
-
-    def msbuilder = new MsBuild(solutionPath)
+    def msbuilder = new MsBuild(solutionPath, new StepExecutor(this))
     msbuilder.build()
 }
