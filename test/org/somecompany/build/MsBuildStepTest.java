@@ -11,7 +11,7 @@ class MsBuildStepTest {
     @Test
     void build_callsShStep() {
         String solutionPath = "some/path/to.sln";
-        MsBuildStep builder = new MsBuildStep(solutionPath, true);
+        MsBuildStep builder = new MsBuildStep(solutionPath, SomeFlag.One, true);
 
         builder.build(steps);
 
@@ -21,7 +21,7 @@ class MsBuildStepTest {
     @Test
     void build_shStepReturnsStatusNotEqualsZero_callsErrorStep() {
         String solutionPath = "some/path/to.sln";
-        MsBuildStep builder = new MsBuildStep(solutionPath, true);
+        MsBuildStep builder = new MsBuildStep(solutionPath, SomeFlag.Three, true);
 
         when(steps.sh(anyString())).thenReturn(-1);
 

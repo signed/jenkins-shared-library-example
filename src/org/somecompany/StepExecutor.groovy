@@ -6,4 +6,5 @@ package org.somecompany
 interface StepExecutor {
     int sh(String command)
     void error(String message)
+    void echo(String message)
 }

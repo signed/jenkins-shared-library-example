@@ -1,0 +1,17 @@
+library 'jenkins-shared-library-example'
+
+@Library('jenkins-shared-library-example')
+import org.somecompany.build.SomeFlag
+
+pipeline {
+    agent any
+    stages {
+        stage('build') {
+            steps {
+                ex_msbuild 'some/path/to.sln', SomeFlag.Three
+                ex_msbuild 'some/path/to.sln', SomeFlag.Two, false
+                ex_msbuild 'some/path/to.sln', SomeFlag.One, true
+            }
+        }
+    }
+}

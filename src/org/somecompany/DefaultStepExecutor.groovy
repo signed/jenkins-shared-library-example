@@ -16,4 +16,9 @@ class DefaultStepExecutor implements StepExecutor {
     void error(String message) {
         this.steps.error(message)
     }
+
+    @Override
+    void echo(String message) {
+        this.steps.echo(message)
+    }
 }
