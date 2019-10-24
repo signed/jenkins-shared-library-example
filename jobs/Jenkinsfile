@@ -21,6 +21,9 @@ pipeline {
                     echo first
                     echo second
                 }
+                stepWithClosure('hello') {
+                    echo 'can I ignore parameters'
+                }
             }
         }
 
