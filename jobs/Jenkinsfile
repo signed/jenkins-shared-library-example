@@ -1,6 +1,8 @@
 library 'jenkins-shared-library-example'
 
 @Library('jenkins-shared-library-example')
+import org.somecompany.build.ClosureParameters
+@Library('jenkins-shared-library-example')
 import org.somecompany.build.SomeFlag
 
 pipeline {
@@ -27,6 +29,11 @@ pipeline {
                 stepWithClosure('hello') { Map map ->
                     echo 'can not convert parameters to a map, this will just echo the first argument'
                     echo map
+                }
+                stepWithClosureExplicitParameterObject('world'){ ClosureParameters parameters ->
+                    echo 'different approach to argument passing in a closure'
+                    echo parameters.parenthesis
+                    echo parameters.squareBracket
                 }
             }
         }
