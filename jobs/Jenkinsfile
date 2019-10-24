@@ -15,5 +15,12 @@ pipeline {
                 ex_msbuild strict: true, someFlag: SomeFlag.Two, solutionPath: '/my/way'
             }
         }
+        stage('step with closure') {
+            stepWithClosure('hello') { String first, String second ->
+                echo first
+                echo second
+            }
+        }
+
     }
 }
