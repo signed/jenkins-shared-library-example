@@ -7,6 +7,6 @@ import org.somecompany.build.SomeFlag
  * @param solutionPath Path to .sln file
  * @return
  */
-def call(String solutionPath, SomeFlag someFlag, boolean strict = true) {
+def call(Map map = [:], String solutionPath, SomeFlag someFlag, boolean strict = true) {
     new MsBuildStep(solutionPath, someFlag, strict).build(new DefaultStepExecutor(this))
 }
