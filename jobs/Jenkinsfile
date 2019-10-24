@@ -22,7 +22,11 @@ pipeline {
                     echo second
                 }
                 stepWithClosure('hello') {
-                    echo 'can I ignore parameters'
+                    echo 'parameters can be ignored if they are not needed'
+                }
+                stepWithClosure('hello') { Map map ->
+                    echo 'can access parameters as a map'
+                    echo map
                 }
             }
         }
