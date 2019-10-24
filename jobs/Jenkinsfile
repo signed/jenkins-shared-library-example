@@ -39,7 +39,7 @@ pipeline {
 
         stage('nest steps by directory'){
             steps{
-               step('42 is the answer')
+               hello('42 is the answer')
             }
         }
     }
