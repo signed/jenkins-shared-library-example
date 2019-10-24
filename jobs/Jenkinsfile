@@ -2,7 +2,7 @@ library 'jenkins-shared-library-example'
 
 @Library('jenkins-shared-library-example')
 import org.somecompany.build.ClosureParameters
-@Library('jenkins-shared-library-example')
+//@Library('jenkins-shared-library-example')
 import org.somecompany.build.SomeFlag
 
 pipeline {
