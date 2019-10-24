@@ -16,9 +16,11 @@ pipeline {
             }
         }
         stage('step with closure') {
-            stepWithClosure('hello') { String first, String second ->
-                echo first
-                echo second
+            steps{
+                stepWithClosure('hello') { String first, String second ->
+                    echo first
+                    echo second
+                }
             }
         }
 
