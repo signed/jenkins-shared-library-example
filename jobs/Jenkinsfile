@@ -25,7 +25,7 @@ pipeline {
                     echo 'parameters can be ignored if they are not needed'
                 }
                 stepWithClosure('hello') { Map map ->
-                    echo 'can access parameters as a map'
+                    echo 'can not convert parameters to a map, this will just echo the first argument'
                     echo map
                 }
             }
