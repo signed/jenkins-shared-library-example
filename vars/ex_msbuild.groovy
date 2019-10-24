@@ -7,5 +7,5 @@ import org.somecompany.build.MsBuildStep
  * @return
  */
 def call(String solutionPath, boolean strict = true) {
-    new MsBuildStep(new DefaultStepExecutor(this), solutionPath, strict).build()
+    new MsBuildStep(solutionPath, strict).build(new DefaultStepExecutor(this))
 }
