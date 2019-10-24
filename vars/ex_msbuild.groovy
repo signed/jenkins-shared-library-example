@@ -11,6 +11,10 @@ def call(Map args = [:]) {
     String solutionPath = args.solutionPath as String
     SomeFlag someFlag = args.someFlag as SomeFlag
     boolean strict = args.strict ? args.strict : true
+    call(solutionPath, someFlag, strict)
+}
 
+def call(String solutionPath, SomeFlag someFlag, boolean strict = true) {
     new MsBuildStep(solutionPath, someFlag, strict).build(new DefaultStepExecutor(this))
 }
+
