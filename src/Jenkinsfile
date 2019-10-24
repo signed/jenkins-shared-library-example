@@ -12,7 +12,7 @@ pipeline {
                 ex_msbuild 'some/path/to.sln', SomeFlag.Two, false
                 ex_msbuild 'some/path/to.sln', SomeFlag.One, true
                 //String solutionPath, SomeFlag someFlag,  boolean strict = true
-                ex_msbuild strict: true, someFlag: SomeFlag.Two
+                ex_msbuild strict: true, someFlag: SomeFlag.Two, solutionPath: 'my way'
             }
         }
     }
