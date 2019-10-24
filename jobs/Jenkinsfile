@@ -37,5 +37,10 @@ pipeline {
             }
         }
 
+        stage('nest steps by directory'){
+            steps{
+               sub.step('42 is the answer')
+            }
+        }
     }
 }
